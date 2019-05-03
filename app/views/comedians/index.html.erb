@@ -15,14 +15,15 @@
 <section id="comedian-<%=comedian.id%>">
   <br>
     <img src=  <%= comedian.image_url %> alt= <%= comedian.name.delete(" ") %> >
-    <h2><%= comedian.name %></h2>
-    <p><%= comedian.age %></p>
-    <p><%= comedian.birthplace %></p>
+    <h2>Comedian name: <%= comedian.name %></h2>
+    <p>Age: <%= comedian.age %></p>
+    <p>Birthplace: <%= comedian.birthplace %></p>
+    <p>Total Specials: <%= comedian.specials.length %></p>
 
     <% comedian.specials.each do |special|  %>
 
-    <p><%= special.name %></p>
-    <p><%= special.runtime_mins %></p>
+    <p>Special name: <%= special.name %></p>
+    <p>Special runtime <%= special.runtime_mins %></p>
     <% end %>
   <% end %>
 </section>
