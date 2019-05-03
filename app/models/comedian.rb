@@ -7,4 +7,8 @@ class Comedian < ApplicationRecord
     where ({age:age})
   end
 
+  def count_specials
+    Special.where(comedian_id: self.id).count
+  end
+
 end
