@@ -2,8 +2,12 @@ class ComediansController < ApplicationController
   def index
     if params[:age] == nil
       @comedians = Comedian.all
+      @unique_cities = @comedians.map { |comedian| comedian.birthplace}.uniq
+      @average_age = @comedians.sum {|comedian| comedian.age} / @comedians.length
     else
       @comedians = Comedian.filter_by_age(params[:age])
+      @unique_cities = @comedians.map { |comedian| comedian.birthplace}.uniq
+      @average_age = @comedians.sum {|comedian| comedian.age} / @comedians.length
     end
   end
 
