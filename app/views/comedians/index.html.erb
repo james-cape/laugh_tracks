@@ -5,9 +5,12 @@
 
 <section id="statistics">
 <h2>Statistics</h2>
-<p>Average Age: <%= @comedians.average_age %></p>
-
-
+<p>Average Age: <%= @comedians.average_age.round(1) %></p>
+<p>Unique Cities: </p>
+  <ul><% @comedians.unique_cities.each do |comedian| %>
+    <li><%= comedian[:birthplace] %></li>
+  <% end %>
+  </ul>
 </section>
 
 
@@ -21,7 +24,6 @@
     <p>Total Specials: <%= comedian.count_specials %></p>
 
     <% comedian.specials.each do |special|  %>
-
     <p>Special name: <%= special.name %></p>
     <p>Special runtime <%= special.runtime_mins %></p>
     <% end %>
