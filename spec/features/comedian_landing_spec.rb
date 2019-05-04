@@ -99,7 +99,6 @@ describe "user sees all comedians" do
       within "#comedian-#{comedian_2.id}" do
         expect(page).to have_content("3")
       end
-      # Why does save_and_open_page not have css styling?
     end
 
     it "displays statistics at top of page" do
