@@ -109,12 +109,11 @@ describe "user sees all comedians" do
       comedian_2.specials.create(name: "Rocky Mountain High", runtime_mins: 63, comedian_id: 2, image_url: "https://m.media-amazon.com/images/M/MV5BNjI4OGY5MTktZjNiNC00MTgyLTlhZGMtMzBhYzcyZTI5YTljXkEyXkFqcGdeQXVyMTk3NDAwMzI@._V1_SY1000_SX750_AL_.jpg")
 
       visit '/comedians'
+
       within "#comedian-#{comedian_2.id}" do
         expect(page).to have_content("3")
       end
       # Why does save_and_open_page not have css styling?
     end
-
-
   end
 end
