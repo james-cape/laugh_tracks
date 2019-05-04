@@ -20,4 +20,8 @@ class Comedian < ApplicationRecord
     # select(:birthplace).distinct.pluck(:birthplace)
   end
 
+  def self.unique_ages
+    select(:age).pluck("DISTINCT :age")
+  end
+
 end
