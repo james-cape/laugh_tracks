@@ -133,11 +133,11 @@ describe "user sees all comedians" do
 
       within "#statistics" do
         expect(page).to have_content("Average Age:")
-        expect(page).to have_content("Unique Cities:")
+        #expect(page).to have_content("Unique Cities:")
       end
 
       within "#statistics" do
-      
+
 
 
 
