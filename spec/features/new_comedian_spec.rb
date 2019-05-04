@@ -30,14 +30,9 @@ describe "user creates a new comedian" do
         fill_in "comedian[birthplace]", with: "St Paul, MN"
         click_on "Create Comedian"
 
-        # comedian = Comedian.last
-# require 'pry'; binding.pry
-        # save_and_open_page
-        # within "#comedian-#{comedian.id}" do
-          expect(page).to have_content("Mitch Hedberg")
-          expect(page).to have_content("37")
-          expect(page).to have_content("St Paul, MN")
-        # end
+        expect(page).to have_content("Mitch Hedberg")
+        expect(page).to have_content("37")
+        expect(page).to have_content("St Paul, MN")
       end
     end
   end
