@@ -2,14 +2,6 @@
 <br>
 <img src="https://media0.giphy.com/media/YkXNjAkG7CfEVx3gcy/giphy.gif" alt="Spinning Globe">
 <br>
-<ul>
-  <li><a href="/comedians">Comedian Index</a></li>
-  <li><a href="/comedians/age?=:Age">Comedian Age Check</a></li>
-  <li><a href="/comedians/new">New Comedian</a></li>
-</ul>
-
-
-
 
 <% @comedians.each do |comedian| %>
 <section id="comedian-<%=comedian.id%>">
@@ -18,7 +10,7 @@
     <h2>Comedian name: <%= comedian.name %></h2>
     <p>Age: <%= comedian.age %></p>
     <p>Birthplace: <%= comedian.birthplace %></p>
-    <p>Total Specials: <%= comedian.specials.length %></p>
+    <p>Total Specials: <%= comedian.count_specials %></p>
 
     <% comedian.specials.each do |special|  %>
 
