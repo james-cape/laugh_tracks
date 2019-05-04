@@ -11,17 +11,24 @@ describe "user creates a new comedian" do
         expect(page).to have_content("Birthplace")
       end
 
-      #   expect(current_path).to eq(new_comedian_path)
-      #
-      #   fill_in "comedian[name]", with: "New Name!"
-      #   fill_in "comedian[age]", with: "New Age!"
-      #   fill_in "comedian[city]", with: "New City!"
-      #   click_on "Create Comedian"
-      #
-      #   expect(page).to have_content("New Name!")
-      #   expect(page).to have_content("New Age!")
-      #   expect(page).to have_content("New City!")
-      # end
+      it "accepts input for new comedian features and displays on main page" do
+        visit '/comedians/new'
+
+        fill_in "comedian[name]", with: "Mitch Hedberg"
+        fill_in "comedian[age]", with: "37"
+        fill_in "comedian[birthplace]", with: "St Paul, MN"
+        click_on "Create Comedian"
+
+        comedian = Comedian.last
+
+        expect(current_path).to eq("/comedians")
+
+
+        #
+        # expect(page).to have_content("New Name!")
+        # expect(page).to have_content("New Age!")
+        # expect(page).to have_content("New City!")
+      end
     end
   end
 end
