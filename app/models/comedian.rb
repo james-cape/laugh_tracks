@@ -11,4 +11,12 @@ class Comedian < ApplicationRecord
     Special.where(comedian_id: self.id).count
   end
 
+  def self.average_age
+    average(:age)
+  end
+
+  def self.unique_cities
+    select(:birthplace).distinct
+  end
+
 end

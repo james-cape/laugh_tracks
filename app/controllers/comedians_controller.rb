@@ -17,6 +17,8 @@ class ComediansController < ApplicationController
     redirect_to comedians_path
   end
 
+  
+
   private
 
   def comedian_params
