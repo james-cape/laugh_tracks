@@ -15,4 +15,8 @@ class Comedian < ApplicationRecord
     average(:age)
   end
 
+  def self.unique_cities
+    select(:birthplace).distinct
+  end
+
 end
