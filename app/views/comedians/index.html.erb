@@ -1,13 +1,14 @@
+
 <h1>Welcome to the Center of the Comedian Universe</h1>
 <br>
 
 
 <section id="statistics">
 <h2>Statistics</h2>
-<p>Average Age: <%= @comedians.average_age.round(1) %></p>
+<p>Average Age: <%= @average_age.round(1) %></p>
 <p>Unique Cities: </p>
-  <ul><% @comedians.unique_cities.each do |comedian| %>
-    <li><%= comedian[:birthplace] %></li>
+  <ul><% @unique_cities.each do |city| %>
+    <li><%= city %></li>
   <% end %>
   </ul>
 </section>
@@ -28,3 +29,12 @@
     <% end %>
   <% end %>
 </section>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
