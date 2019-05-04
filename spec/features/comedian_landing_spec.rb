@@ -115,5 +115,42 @@ describe "user sees all comedians" do
       end
       # Why does save_and_open_page not have css styling?
     end
+
+    it "displays statistics at top of page" do
+      ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
+
+      comedian_1 = Comedian.create(name: "Bill Burr", age: 34, birthplace: "Canton, MA", image_url: "https://image.masslive.com/home/mass-media/width960/img/entertainment/photo/nashville-comedy-festival-21d347107e975672.jpg")
+      comedian_2 = Comedian.create(name: "Joe Rogan", age: 51, birthplace: "Newark, NJ", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
+
+      comedian_1.specials.create(name: "Walk Your Way Out", runtime_mins: 77, comedian_id: 1, image_url: "https://m.media-amazon.com/images/M/MV5BMGYwNDE4MDItNjQwYi00NWIwLWJmYTYtY2I5NDEyMGUxNWMwL2ltYWdlXkEyXkFqcGdeQXVyMjUwMTM3MTU@._V1_.jpg")
+      comedian_1.specials.create(name: "I'm Sorry You Feel That Way", runtime_mins: 80, comedian_id: 1, image_url: "https://m.media-amazon.com/images/M/MV5BMTk0MzI5MjAxNV5BMl5BanBnXkFtZTgwNDY1NzA0NDE@._V1_SY1000_SX675_AL_.jpg")
+      comedian_1.specials.create(name: "You People Are All The Same", runtime_mins: 69, comedian_id: 1, image_url: "https://m.media-amazon.com/images/M/MV5BMjAyZTI1NjMtNjQ3OC00MDhhLTkxMDgtMDVmMThhNjE5M2NkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg")
+      comedian_2.specials.create(name: "Strange Times", runtime_mins: 63, comedian_id: 2, image_url: "https://m.media-amazon.com/images/M/MV5BNzc2Mzg5YmMtMzM1NC00NDgwLTljYWQtZDdkNzBmNjZkNmJhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg")
+      comedian_2.specials.create(name: "Triggered", runtime_mins: 63, comedian_id: 2, image_url: "https://m.media-amazon.com/images/M/MV5BYTE0M2FkNGMtYjYxNi00MDRkLWE0YWUtNWI4NWU3NWIzMWIzXkEyXkFqcGdeQXVyMzE5NzI0NjE@._V1_.jpg")
+      comedian_2.specials.create(name: "Rocky Mountain High", runtime_mins: 63, comedian_id: 2, image_url: "https://m.media-amazon.com/images/M/MV5BNjI4OGY5MTktZjNiNC00MTgyLTlhZGMtMzBhYzcyZTI5YTljXkEyXkFqcGdeQXVyMTk3NDAwMzI@._V1_SY1000_SX750_AL_.jpg")
+
+      visit '/comedians'
+
+      within "#statistics" do
+        expect(page).to have_content("Average Age:")
+        expect(page).to have_content("Unique Cities:")
+      end
+
+      within "#statistics" do
+      
+
+
+
+        # As a visitor
+        # When I visit `/comedians`
+        # Then I see an area at the top of the page called 'Statistics'
+        # In that 'Statistics' area, I see the following information:
+        # - the average age of all comedians on the page (if the page is filtered for specific comedians, the statistics should reflect the new group)
+        # - a unique list of cities for each comedian on the page
+        #
+        # Averaging and uniqueness should be done in ActiveRecord NOT
+        # using Ruby
+      end
+    end
   end
 end
