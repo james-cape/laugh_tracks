@@ -11,4 +11,8 @@ class Comedian < ApplicationRecord
     Special.where(comedian_id: self.id).count
   end
 
+  def self.average_age
+    average(:age)
+  end
+
 end
