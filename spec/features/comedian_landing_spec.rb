@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 describe "user visits /comedians" do
+  before(:each) do
+    ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
+  end
 
   describe "user sees all comedians and info" do
     it "displays all comedians" do
-      ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
       comedian_1 = Comedian.create(name: "Bill Burr", age: 50, birthplace: "Canton, MA", image_url: "https://image.masslive.com/home/mass-media/width960/img/entertainment/photo/nashville-comedy-festival-21d347107e975672.jpg")
       comedian_2 = Comedian.create(name: "Joe Rogan", age: 51, birthplace: "Newark, NJ", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
 
@@ -14,8 +16,6 @@ describe "user visits /comedians" do
     end
 
     it "displays comedian info in the specific comedian area" do
-      ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
-
       comedian_1 = Comedian.create(name: "Bill Burr", age: 50, birthplace: "Canton, MA", image_url: "https://image.masslive.com/home/mass-media/width960/img/entertainment/photo/nashville-comedy-festival-21d347107e975672.jpg")
       comedian_2 = Comedian.create(name: "Joe Rogan", age: 51, birthplace: "Newark, NJ", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
 
@@ -35,8 +35,6 @@ describe "user visits /comedians" do
     end
 
     it "displays each comedian's TV specials" do
-      ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
-
       comedian_1 = Comedian.create(name: "Bill Burr", age: 50, birthplace: "Canton, MA", image_url: "https://image.masslive.com/home/mass-media/width960/img/entertainment/photo/nashville-comedy-festival-21d347107e975672.jpg")
       comedian_2 = Comedian.create(name: "Joe Rogan", age: 51, birthplace: "Newark, NJ", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
 
@@ -58,8 +56,6 @@ describe "user visits /comedians" do
     end
 
     it "displays each comedian's thumbnail" do
-      ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
-
       Comedian.create(name: "Bill Burr", age: 50, birthplace: "Canton, MA", image_url: "https://image.masslive.com/home/mass-media/width960/img/entertainment/photo/nashville-comedy-festival-21d347107e975672.jpg")
       Comedian.create(name: "Joe Rogan", age: 51, birthplace: "Newark, NJ", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
 
@@ -70,8 +66,6 @@ describe "user visits /comedians" do
     end
 
     it "displays count of each comedians TV specials" do
-      ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
-
       comedian_1 = Comedian.create(name: "Bill Burr", age: 34, birthplace: "Canton, MA", image_url: "https://image.masslive.com/home/mass-media/width960/img/entertainment/photo/nashville-comedy-festival-21d347107e975672.jpg")
       comedian_2 = Comedian.create(name: "Joe Rogan", age: 51, birthplace: "Newark, NJ", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
 
@@ -92,8 +86,6 @@ describe "user visits /comedians" do
 
   describe "user enters url age query" do
     it "displays comedians according to age" do
-      ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
-
       comedian_1 = Comedian.create(name: "Bill Burr", age: 34, birthplace: "Canton, MA", image_url: "https://image.masslive.com/home/mass-media/width960/img/entertainment/photo/nashville-comedy-festival-21d347107e975672.jpg")
       comedian_2 = Comedian.create(name: "Joe Rogan", age: 51, birthplace: "Newark, NJ", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
 
@@ -104,8 +96,6 @@ describe "user visits /comedians" do
     end
 
     it "displays statistics at top of page for only comedians of age x" do
-      ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
-
       Comedian.create(name: "Bill Burr", age: 30, birthplace: "Canton, MA", image_url: "https://image.masslive.com/home/mass-media/width960/img/entertainment/photo/nashville-comedy-festival-21d347107e975672.jpg")
       Comedian.create(name: "Joe Rogan", age: 34, birthplace: "Canton, MA", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
       Comedian.create(name: "James Cape", age: 60, birthplace: "Racine, WI", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
@@ -121,8 +111,6 @@ describe "user visits /comedians" do
 
   describe "user wants to see comedian statistics" do
     it "displays statistics at top of page" do
-      ActiveRecord::Base.connection.reset_pk_sequence!('comedians')
-
       Comedian.create(name: "Bill Burr", age: 30, birthplace: "Canton, MA", image_url: "https://image.masslive.com/home/mass-media/width960/img/entertainment/photo/nashville-comedy-festival-21d347107e975672.jpg")
       Comedian.create(name: "Joe Rogan", age: 60, birthplace: "Canton, MA", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
       Comedian.create(name: "James Cape", age: 60, birthplace: "Racine, WI", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
