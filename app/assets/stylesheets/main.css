@@ -3,3 +3,25 @@ img {
   max-height: 140px;
   padding: 14px;
 }
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
+  margin: 0 auto;
+  max-width: 64em;
+  padding: 0;
+  background-color: #eaeaea;
+  border: 1px solid #eaeaea;
+
+  max-height: 125px;
+}
+
+li {
+  display: flex;
+  align-items: left;
+  justify-content: top;
+  list-style: none;
+  margin-left: 0;
+  font-size: calc(16px + (21 - 16) * ((100vw - 300px) / (1600 - 300)));
+}
