@@ -19,6 +19,7 @@ class ComediansController < ApplicationController
 
   def create
     @comedian = Comedian.new(comedian_params)
+    @comedian[:image_url] = "http://clipart-library.com/images/Bcgrngy7i.png"
     @comedian.save
     redirect_to comedians_path
   end
