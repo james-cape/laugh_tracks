@@ -38,7 +38,7 @@
   <section class="jumbotron">
     <section id="statistics">
       <h2>Comedian Statistics</h2>
-      <p>Average Age: <%= @average_age.round(1) %></p>
+      <p>Average Age (years): <%= @average_age.round(1) %></p>
       <p>Unique Cities: </p>
       <ul class="grid-cities"><% @unique_cities.each do |city| %>
         <li><%= city %></li>
