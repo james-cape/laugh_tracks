@@ -2,20 +2,37 @@ img {
   max-width: 600px;
   max-height: 200px;
   padding: 14px;
+  border-radius: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
 .grid-container {
+  margin: 20px;
+  border-radius: 5px;
   display: grid;
   grid-template-columns: auto auto;
-  background-color: #a9c8ec;
+  background-color: #E3E6EB;
   padding: 10px;
 }
 
 .grid-item {
-  background-color: #E3E6EB;
-  border: 1px solid #a9c8ec;
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  margin: 5px;
+  border: 1px solid #E3E6EB;
   padding: 20px;
   font-size: 20px;
   text-align: left;
+}
+
+.grid-cities {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.jumbotron {
+  padding: 5px;
+  margin: 20px;
 }
