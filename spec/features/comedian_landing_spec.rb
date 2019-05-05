@@ -111,11 +111,6 @@ describe "user sees all comedians" do
       visit '/comedians'
 
       within "#statistics" do
-        expect(page).to have_content("Average Age:")
-        expect(page).to have_content("Unique Cities:")
-      end
-
-      within "#statistics" do
         expect(page).to have_content("50")
         expect(page).to have_content("Canton, MA")
         expect(page).to have_content("Racine, WI")
@@ -130,11 +125,6 @@ describe "user sees all comedians" do
       Comedian.create(name: "James Cape", age: 60, birthplace: "Racine, WI", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
 
       visit '/comedians?age=34'
-
-      within "#statistics" do
-        expect(page).to have_content("Average Age:")
-        expect(page).to have_content("Unique Cities:")
-      end
 
       within "#statistics" do
         expect(page).to have_content("34")
