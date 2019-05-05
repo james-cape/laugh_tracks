@@ -16,12 +16,10 @@ class Comedian < ApplicationRecord
   end
 
   def self.unique_cities
-    select(:birthplace).pluck("DISTINCT :birthplace")
-    # select(:birthplace).distinct.pluck(:birthplace)
+    select(:birthplace).distinct.pluck(:birthplace)
   end
 
   def self.unique_ages
-    select(:age).pluck("DISTINCT :age")
+    select(:age).distinct.pluck(:age)
   end
-
 end

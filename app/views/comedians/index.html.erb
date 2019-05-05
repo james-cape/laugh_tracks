@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap 101 Template</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
   </head>
-  <body>
+<body>
+  <nav class="navmaster">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/comedians">Comedians Central</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,44 +33,46 @@
         </ul>
       </div>
     </nav>
+  </nav>
 
-    <section class="jumbotron">
-      <section id="statistics">
-        <h2>Comedian Statistics</h2>
-        <p>Average Age: <%= @average_age.round(1) %></p>
-        <p>Unique Cities: </p>
-        <ul class="grid-cities"><% @unique_cities.each do |city| %>
-          <li><%= city %></li>
-        <% end %>
-        </ul>
-      </section>
-    </section>
-
-    <section class="grid-container">
-      <% @comedians.each do |comedian| %>
-        <section class="grid-item">
-          <section id="comedian-<%=comedian.id%>">
-            <img src=  <%= comedian.image_url %> alt= <%= comedian.name.delete(" ") %> >
-            <h2><%= comedian.name %>, <%= comedian.age %> years old, <%= comedian.birthplace %></h2>
-
-            <li><%= comedian.count_specials %> Specials:</li>
-
-            <% comedian.specials.each do |special|  %>
-            <ul class="grid-container">
-            <section class="grid-item">Special: <%= special.name %></section>
-            <section class="grid-item"><%= special.runtime_mins %> minutes</section>
-            </ul>
-          <% end %>
-        </section></section>
+  <section class="jumbotron">
+    <section id="statistics">
+      <h2>Comedian Statistics</h2>
+      <p>Average Age: <%= @average_age.round(1) %></p>
+      <p>Unique Cities: </p>
+      <ul class="grid-cities"><% @unique_cities.each do |city| %>
+        <li><%= city %></li>
       <% end %>
+      </ul>
     </section>
+  </section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+  <section class="grid-container">
+    <% @comedians.each do |comedian| %>
+      <section class="grid-item">
+        <section id="comedian-<%=comedian.id%>">
+          <img src=  <%= comedian.image_url %> alt= <%= comedian.name.delete(" ") %> >
+          <h2><%= comedian.name %>, age <%= comedian.age %></h2>
+          <h2><%= comedian.birthplace %></h2>
+
+          <p><%= comedian.count_specials %> Specials</p>
+
+          <% comedian.specials.each do |special|  %>
+          <ul class="grid-container">
+          <section class="grid-item"><%= special.name %></section>
+          <section class="grid-item"><%= special.runtime_mins %> minutes</section>
+          </ul>
+        <% end %>
+      </section></section>
+    <% end %>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </html>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
