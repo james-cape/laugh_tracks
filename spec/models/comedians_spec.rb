@@ -19,8 +19,8 @@ describe Comedian, type: :model do
       Comedian.create(name: "Joe Smith", age: 50, birthplace: "Newark, NJ", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
 
       expect(Comedian.all.average_age).to eq(40)
-      expect(Comedian.all.unique_cities).to eq(["Canton, MA", "Newark, NJ"])
-      expect(Comedian.all.unique_ages).to eq([20, 50])
+      expect(Comedian.all.unique_cities.sort).to eq(["Canton, MA", "Newark, NJ"])
+      expect(Comedian.all.unique_ages.sort).to eq([20, 50])
     end
   end
 end
