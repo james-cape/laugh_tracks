@@ -1,9 +1,15 @@
 class ComediansController < ApplicationController
   def index
     if params[:age] == nil
-      @comedians = Comedian.all
+      @comedians     = Comedian.all
+      @unique_cities = @comedians.map { |comedian| comedian.birthplace}.uniq
+      @unique_ages   = @comedians.map { |comedian| comedian.age}.uniq.sort
+      @average_age   = @comedians.sum { |comedian| comedian.age} / @comedians.length
     else
-      @comedians = Comedian.filter_by_age(params[:age])
+      @comedians     = Comedian.filter_by_age(params[:age])
+      @unique_cities = @comedians.map { |comedian| comedian.birthplace}.uniq
+      @unique_ages   = @comedians.map { |comedian| comedian.age}.uniq.sort
+      @average_age   = @comedians.sum { |comedian| comedian.age} / @comedians.length
     end
   end
 
@@ -13,6 +19,7 @@ class ComediansController < ApplicationController
 
   def create
     @comedian = Comedian.new(comedian_params)
+    @comedian[:image_url] = "http://clipart-library.com/images/Bcgrngy7i.png"
     @comedian.save
     redirect_to comedians_path
   end

@@ -1,5 +1,54 @@
+html * {
+   color: #000 !important;
+   font-family: Arial !important;
+}
+
 img {
-  max-width: 140px;
-  max-height: 140px;
+  max-width: 600px;
+  max-height: 200px;
   padding: 14px;
+  border-radius: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-container {
+  margin: 20px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: #E3E6EB;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  margin: 5px;
+  border: 1px solid #E3E6EB;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.grid-cities {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.jumbotron {
+  margin: 20px;
+}
+
+.navmaster {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.inputs {
+  padding: 40px;
+  background-color: #f4f4f4;
 }
