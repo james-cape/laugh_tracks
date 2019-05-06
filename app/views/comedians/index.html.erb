@@ -52,7 +52,7 @@
       <section class="grid-item">
         <section id="comedian-<%=comedian.id%>">
           <img src=  <%= comedian.image_url %> alt= <%= comedian.name.delete(" ") %> >
-          <h2><%= comedian.name %>, age <%= comedian.age %></h2>
+          <h2><%= link_to comedian.name, comedians_path(comedian) %>, age <%= comedian.age %></h2>
           <h2><%= comedian.birthplace %></h2>
 
           <p><%= comedian.count_specials %> Specials</p>
