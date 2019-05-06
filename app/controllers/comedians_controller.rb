@@ -25,17 +25,6 @@ class ComediansController < ApplicationController
   end
 
   def show
-    # if params[:age] == nil
-    #   @comedians     = Comedian.all
-    #   @unique_cities = @comedians.map { |comedian| comedian.birthplace}.uniq
-    #   @unique_ages   = @comedians.map { |comedian| comedian.age}.uniq.sort
-    #   @average_age   = @comedians.sum { |comedian| comedian.age} / @comedians.length
-    # else
-    #   @comedians     = Comedian.filter_by_age(params[:age])
-    #   @unique_cities = @comedians.map { |comedian| comedian.birthplace}.uniq
-    #   @unique_ages   = @comedians.map { |comedian| comedian.age}.uniq.sort
-    #   @average_age   = @comedians.sum { |comedian| comedian.age} / @comedians.length
-    # end
     @comedian = Comedian.find(params[:id])
   end
 
@@ -44,5 +33,4 @@ class ComediansController < ApplicationController
   def comedian_params
     params.require(:comedian).permit(:name, :age, :birthplace)
   end
-
 end
