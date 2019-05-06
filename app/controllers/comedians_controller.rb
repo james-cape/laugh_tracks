@@ -24,10 +24,13 @@ class ComediansController < ApplicationController
     redirect_to comedians_path
   end
 
+  def show
+    @comedian = Comedian.find(params[:id])
+  end
+
   private
 
   def comedian_params
     params.require(:comedian).permit(:name, :age, :birthplace)
   end
-
 end

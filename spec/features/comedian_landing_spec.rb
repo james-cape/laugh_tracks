@@ -11,8 +11,8 @@ describe "user visits /comedians" do
       comedian_2 = Comedian.create(name: "Joe Rogan", age: 51, birthplace: "Newark, NJ", image_url: "https://pbs.twimg.com/profile_images/552307347851210752/vrXDcTFC_400x400.jpeg")
 
       visit '/comedians'
-        expect(page).to have_content(comedian_1.name)
-        expect(page).to have_content(comedian_2.name)
+        expect(page).to have_link(comedian_1.name)
+        expect(page).to have_link(comedian_2.name)
     end
 
     it "displays comedian info in the specific comedian area" do
@@ -22,13 +22,13 @@ describe "user visits /comedians" do
       visit '/comedians'
 
       within '#comedian-1' do
-        expect(page).to have_content("Bill Burr")
+        expect(page).to have_link("Bill Burr")
         expect(page).to have_content("50")
         expect(page).to have_content("Canton, MA")
       end
 
       within "#comedian-#{comedian_2.id}" do
-        expect(page).to have_content("Joe Rogan")
+        expect(page).to have_link("Joe Rogan")
         expect(page).to have_content("51")
         expect(page).to have_content("Newark, NJ")
       end
